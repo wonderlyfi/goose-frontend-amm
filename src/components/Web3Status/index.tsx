@@ -10,7 +10,7 @@ import CoinbaseWalletIcon from '../../assets/images/coinbaseWalletIcon.svg'
 import FortmaticIcon from '../../assets/images/fortmaticIcon.png'
 import PortisIcon from '../../assets/images/portisIcon.png'
 import WalletConnectIcon from '../../assets/images/walletConnectIcon.svg'
-import { fortmatic, injected, portis, walletconnect, walletlink, bsc } from '../../connectors'
+import { injected, walletconnect } from '../../connectors'
 import { NetworkContextName } from '../../constants'
 import useENSName from '../../hooks/useENSName'
 import { useHasSocks } from '../../hooks/useSocksBalance'
@@ -134,33 +134,35 @@ const SOCK = (
 
 // eslint-disable-next-line react/prop-types
 function StatusIcon({ connector }: { connector: AbstractConnector }) {
-  if (connector === injected || connector === bsc) {
-    return <Identicon />
-  } if (connector === walletconnect) {
+  // if (connector === injected || connector === bsc) {
+  //   return <Identicon />
+  // } 
+  if (connector === walletconnect) {
     return (
       <IconWrapper size={16}>
         <img src={WalletConnectIcon} alt="" />
       </IconWrapper>
     )
-  } if (connector === walletlink) {
-    return (
-      <IconWrapper size={16}>
-        <img src={CoinbaseWalletIcon} alt="" />
-      </IconWrapper>
-    )
-  } if (connector === fortmatic) {
-    return (
-      <IconWrapper size={16}>
-        <img src={FortmaticIcon} alt="" />
-      </IconWrapper>
-    )
-  } if (connector === portis) {
-    return (
-      <IconWrapper size={16}>
-        <img src={PortisIcon} alt="" />
-      </IconWrapper>
-    )
-  }
+  } 
+  // if (connector === walletlink) {
+  //   return (
+  //     <IconWrapper size={16}>
+  //       <img src={CoinbaseWalletIcon} alt="" />
+  //     </IconWrapper>
+  //   )
+  // } if (connector === fortmatic) {
+  //   return (
+  //     <IconWrapper size={16}>
+  //       <img src={FortmaticIcon} alt="" />
+  //     </IconWrapper>
+  //   )
+  // } if (connector === portis) {
+  //   return (
+  //     <IconWrapper size={16}>
+  //       <img src={PortisIcon} alt="" />
+  //     </IconWrapper>
+  //   )
+  // }
   return null
 }
 

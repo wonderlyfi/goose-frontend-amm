@@ -2,31 +2,32 @@ import { ChainId, JSBI, Percent, Token, WETH } from '@pancakeswap-libs/sdk'
 import { AbstractConnector } from '@web3-react/abstract-connector'
 
 // import { bsc, fortmatic, injected, portis, walletconnect, walletlink } from '../connectors'
-import { injected, bsc } from '../connectors'
+import { injected } from '../connectors'
 // TODO
-export const ROUTER_ADDRESS = '0x05fF2B0DB69458A0750badebc4f9e13aDd608C7F'
+export const ROUTER_ADDRESS = '0x1365829753B5Bb232036EAA8e41035E93088F625'
 
 // a list of tokens by chain
 type ChainTokenList = {
   readonly [chainId in ChainId]: Token[]
 }
 
-export const DAI = new Token(ChainId.MAINNET, '0x1af3f329e8be154074d8769d1ffa4ee058b1dbc3', 18, 'DAI', 'Dai Stablecoin')
-export const BUSD = new Token(ChainId.MAINNET, '0xe9e7cea3dedca5984780bafc599bd69add087d56', 18, 'BUSD', 'Binance USD')
-export const USDT = new Token(ChainId.MAINNET, '0x55d398326f99059ff775485246999027b3197955', 18, 'USDT', 'Tether USD')
-export const EOS = new Token(ChainId.MAINNET, '0x56b6fb708fc5732dec1afc8d8556423a2edccbd6', 18, 'EOS', 'EOS Token')
-export const DOT = new Token(ChainId.MAINNET, '0x7083609fce4d1d8dc0c979aab8c869ea2c873402', 18, 'DOT', 'Polkadot Token')
-export const ETH = new Token(ChainId.MAINNET, '0x2170ed0880ac9a755fd29b2688956bd959f933f8', 18, 'ETH', 'Ethereum Token')
+export const DAI = new Token(ChainId.ARBITRUM_MAINNET, '0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1', 18, 'DAI', 'Dai Stablecoin')
+export const USDC = new Token(ChainId.ARBITRUM_MAINNET, '0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8', 6, 'USDC', 'USD Coin (Arb1)')
+export const USDT = new Token(ChainId.ARBITRUM_MAINNET, '0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9', 6, 'USDT', 'Tether USD')
+export const WBTC = new Token(ChainId.ARBITRUM_MAINNET, '0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f', 8, 'WBTC', 'Wrapped BTC')
+export const FROST = new Token(ChainId.ARBITRUM_MAINNET, '0xFEa7a6a0B346362BF88A9e4A88416B77a57D6c2A', 18, 'FROST', 'FrostSwap Token') // Currently MIM
 
 const WETH_ONLY: ChainTokenList = {
   [ChainId.MAINNET]: [WETH[ChainId.MAINNET]],
-  [ChainId.BSCTESTNET]: [WETH[ChainId.BSCTESTNET]]
+  [ChainId.BSCTESTNET]: [WETH[ChainId.BSCTESTNET]],
+  [ChainId.ARBITRUM_GOERLI]: [WETH[ChainId.ARBITRUM_GOERLI]],
+  [ChainId.ARBITRUM_MAINNET]: [WETH[ChainId.ARBITRUM_MAINNET]]
 }
 
 // used to construct intermediary pairs for trading
 export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   ...WETH_ONLY,
-  [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], DAI, BUSD, USDT, EOS, DOT]
+  [ChainId.ARBITRUM_MAINNET]: [...WETH_ONLY[ChainId.ARBITRUM_MAINNET], DAI, USDC, USDT, WBTC, FROST]
 }
 
 /**
@@ -34,31 +35,30 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
  * tokens.
  */
 export const CUSTOM_BASES: { [chainId in ChainId]?: { [tokenAddress: string]: Token[] } } = {
-  [ChainId.MAINNET]: {
-    [ETH.address]: [DAI, WETH[ChainId.MAINNET]]
+  [ChainId.ARBITRUM_MAINNET]: {
+    // [ETH.address]: [DAI, WETH[ChainId.MAINNET]]
   }
 }
 
 // used for display in the default list when adding liquidity
 export const SUGGESTED_BASES: ChainTokenList = {
   ...WETH_ONLY,
-  [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], DAI, BUSD, USDT]
+  [ChainId.ARBITRUM_MAINNET]: [...WETH_ONLY[ChainId.ARBITRUM_MAINNET], DAI, USDC, USDT, WBTC, FROST]
 }
 
 // used to construct the list of all pairs we consider by default in the frontend
 export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
   ...WETH_ONLY,
-  [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], DAI, BUSD, USDT]
+  [ChainId.ARBITRUM_MAINNET]: [...WETH_ONLY[ChainId.ARBITRUM_MAINNET], DAI, USDC, USDT, WBTC, FROST]
 }
 
 export const PINNED_PAIRS: { readonly [chainId in ChainId]?: [Token, Token][] } = {
-  [ChainId.MAINNET]: [
-    [
-      new Token(ChainId.MAINNET, '0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82', 18, 'CAKE', 'PancakeSwap Token'),
-      new Token(ChainId.MAINNET, '0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c', 18, 'WBNB', 'Wrapped BNB')
-    ],
-    [BUSD, USDT],
-    [DAI, USDT]
+  [ChainId.ARBITRUM_MAINNET]: [
+    [FROST, WETH[ChainId.ARBITRUM_MAINNET]],
+    [FROST, USDC],
+    [WETH[ChainId.ARBITRUM_MAINNET], WBTC],
+    [USDC, USDT],
+    [USDC, DAI],
   ]
 }
 
@@ -75,14 +75,14 @@ export interface WalletInfo {
 }
 
 export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
-  BSC: {
-    connector: bsc,
-    name: 'Binance Chain Wallet',
-    iconName: 'binance.svg',
-    description: 'Easy-to-use browser extension.',
-    href: null,
-    color: '#E8831D'
-  },
+  // BSC: {
+  //   connector: bsc,
+  //   name: 'Binance Chain Wallet',
+  //   iconName: 'binance.svg',
+  //   description: 'Easy-to-use browser extension.',
+  //   href: null,
+  //   color: '#E8831D'
+  // },
   INJECTED: {
     connector: injected,
     name: 'Injected',
@@ -165,6 +165,6 @@ export const PRICE_IMPACT_WITHOUT_FEE_CONFIRM_MIN: Percent = new Percent(JSBI.Bi
 // for non expert mode disable swaps above this
 export const BLOCKED_PRICE_IMPACT_NON_EXPERT: Percent = new Percent(JSBI.BigInt(1500), BIPS_BASE) // 15%
 
-// used to ensure the user doesn't send so much ETH so they end up with <.01
-export const MIN_ETH: JSBI = JSBI.exponentiate(JSBI.BigInt(10), JSBI.BigInt(16)) // .01 ETH
+// used to ensure the user doesn't send so much ETH so they end up with <.001
+export const MIN_ETH: JSBI = JSBI.exponentiate(JSBI.BigInt(10), JSBI.BigInt(15)) // .001 ETH
 export const BETTER_TRADE_LINK_THRESHOLD = new Percent(JSBI.BigInt(75), JSBI.BigInt(10000))

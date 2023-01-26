@@ -14,11 +14,8 @@ import Transaction from './Transaction'
 import { SUPPORTED_WALLETS } from '../../constants'
 import { ReactComponent as Close } from '../../assets/images/x.svg'
 
-import { injected, walletconnect, walletlink, fortmatic, portis, bsc } from '../../connectors'
-import CoinbaseWalletIcon from '../../assets/images/coinbaseWalletIcon.svg'
+import { injected, walletconnect } from '../../connectors'
 import WalletConnectIcon from '../../assets/images/walletConnectIcon.svg'
-import FortmaticIcon from '../../assets/images/fortmaticIcon.png'
-import PortisIcon from '../../assets/images/portisIcon.png'
 import Identicon from '../Identicon'
 import { ExternalLink, LinkStyledButton, TYPE } from '../Shared'
 
@@ -267,36 +264,36 @@ export default function AccountDetails({
         </IconWrapper>
       )
     }
-    if (connector === walletlink) {
-      return (
-        <IconWrapper size={16}>
-          <img src={CoinbaseWalletIcon} alt="coinbase wallet logo" />
-        </IconWrapper>
-      )
-    }
-    if (connector === fortmatic) {
-      return (
-        <IconWrapper size={16}>
-          <img src={FortmaticIcon} alt="fortmatic logo" />
-        </IconWrapper>
-      )
-    }
-    if (connector === portis) {
-      return (
-        <>
-          <IconWrapper size={16}>
-            <img src={PortisIcon} alt="portis logo" />
-            <MainWalletAction
-              onClick={() => {
-                portis.portis.showPortis()
-              }}
-            >
-              Show Portis
-            </MainWalletAction>
-          </IconWrapper>
-        </>
-      )
-    }
+    // if (connector === walletlink) {
+    //   return (
+    //     <IconWrapper size={16}>
+    //       <img src={CoinbaseWalletIcon} alt="coinbase wallet logo" />
+    //     </IconWrapper>
+    //   )
+    // }
+    // if (connector === fortmatic) {
+    //   return (
+    //     <IconWrapper size={16}>
+    //       <img src={FortmaticIcon} alt="fortmatic logo" />
+    //     </IconWrapper>
+    //   )
+    // }
+    // if (connector === portis) {
+    //   return (
+    //     <>
+    //       <IconWrapper size={16}>
+    //         <img src={PortisIcon} alt="portis logo" />
+    //         <MainWalletAction
+    //           onClick={() => {
+    //             portis.portis.showPortis()
+    //           }}
+    //         >
+    //           Show Portis
+    //         </MainWalletAction>
+    //       </IconWrapper>
+    //     </>
+    //   )
+    // }
     return null
   }
 
@@ -317,7 +314,7 @@ export default function AccountDetails({
               <AccountGroupingRow>
                 {formatConnectorName()}
                 <div>
-                  {connector !== injected && connector !== walletlink && connector !== bsc && (
+                  {connector !== injected && (
                     <WalletAction
                       style={{ fontSize: '.825rem', fontWeight: 400, marginRight: '8px' }}
                       onClick={() => {

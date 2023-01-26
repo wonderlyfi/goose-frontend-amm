@@ -17,7 +17,7 @@ import { SUPPORTED_WALLETS } from '../../constants'
 import { ExternalLink } from '../Shared'
 import MetamaskIcon from '../../assets/images/metamask.png'
 import { ReactComponent as Close } from '../../assets/images/x.svg'
-import { injected, fortmatic, portis } from '../../connectors'
+import { injected } from '../../connectors'
 import { OVERLAY_READY } from '../../connectors/Fortmatic'
 
 const CloseIcon = styled.div`
@@ -190,11 +190,11 @@ export default function WalletModal({
   }
 
   // close wallet modal if fortmatic modal is active
-  useEffect(() => {
-    fortmatic.on(OVERLAY_READY, () => {
-      toggleWalletModal()
-    })
-  }, [toggleWalletModal])
+  // useEffect(() => {
+  //   fortmatic.on(OVERLAY_READY, () => {
+  //     toggleWalletModal()
+  //   })
+  // }, [toggleWalletModal])
 
   // get wallets user can switch too, depending on device/browser
   function getOptions() {
@@ -204,9 +204,9 @@ export default function WalletModal({
       // check for mobile options
       if (isMobile) {
         // disable portis on mobile for now
-        if (option.connector === portis) {
-          return null
-        }
+        // if (option.connector === portis) {
+        //   return null
+        // }
 
         if (!window.web3 && !window.ethereum && option.mobile) {
           return (
@@ -295,7 +295,7 @@ export default function WalletModal({
           <ContentWrapper>
             {error instanceof UnsupportedChainIdError ? (
               <h5>
-                Please connect to the appropriate Binance Smart Chain network.
+                Please connect to the appropriate network (Arbitrum One Mainnet).
                 <a href="https://docs.binance.org/smart-chain/wallet/metamask.html">How?</a>
               </h5>
             ) : (
