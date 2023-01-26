@@ -123,7 +123,7 @@ export default function RemoveLiquidity({
       { name: 'verifyingContract', type: 'address' },
     ]
     const domain = {
-      name: 'Pancake LPs',
+      name: 'FrostSwap LP',
       version: '1',
       chainId,
       verifyingContract: pair.liquidityToken.address,
@@ -274,7 +274,8 @@ export default function RemoveLiquidity({
           signatureData.s,
         ]
       }
-    } else {
+    } 
+    else {
       throw new Error('Attempting to confirm without approval or a signature. Please contact support.')
     }
     const safeGasEstimates: (BigNumber | undefined)[] = await Promise.all(
