@@ -14,8 +14,7 @@ import Transaction from './Transaction'
 import { SUPPORTED_WALLETS } from '../../constants'
 import { ReactComponent as Close } from '../../assets/images/x.svg'
 
-import { injected, walletconnect } from '../../connectors'
-import WalletConnectIcon from '../../assets/images/walletConnectIcon.svg'
+import { injected } from '../../connectors'
 import Identicon from '../Identicon'
 import { ExternalLink, LinkStyledButton, TYPE } from '../Shared'
 
@@ -257,13 +256,13 @@ export default function AccountDetails({
         </IconWrapper>
       )
     }
-    if (connector === walletconnect) {
-      return (
-        <IconWrapper size={16}>
-          <img src={WalletConnectIcon} alt="wallet connect logo" />
-        </IconWrapper>
-      )
-    }
+    // if (connector === walletconnect) {
+    //   return (
+    //     <IconWrapper size={16}>
+    //       <img src={WalletConnectIcon} alt="wallet connect logo" />
+    //     </IconWrapper>
+    //   )
+    // }
     // if (connector === walletlink) {
     //   return (
     //     <IconWrapper size={16}>
@@ -370,7 +369,7 @@ export default function AccountDetails({
                             href={chainId && getEtherscanLink(chainId, ENSName, 'address')}
                           >
                             <LinkIcon size={16} />
-                            <span style={{ marginLeft: '4px' }}>View on bscscan</span>
+                            <span style={{ marginLeft: '4px' }}>View on Arbiscan</span>
                           </AddressLink>
                         )}
                       </div>
@@ -392,7 +391,7 @@ export default function AccountDetails({
                             href={getEtherscanLink(chainId, account, 'address')}
                           >
                             <LinkIcon size={16} />
-                            <span style={{ marginLeft: '4px' }}>View on bscscan</span>
+                            <span style={{ marginLeft: '4px' }}>View on Arbiscan</span>
                           </AddressLink>
                         )}
                       </div>

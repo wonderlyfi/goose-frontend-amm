@@ -5,7 +5,7 @@ import { allLanguages } from 'constants/localisation/languageCodes'
 import { LanguageContext } from 'hooks/LanguageContext'
 import useTheme from 'hooks/useTheme'
 import useGetPriceData from 'hooks/useGetPriceData'
-import { injected, walletconnect } from 'connectors'
+import { injected } from 'connectors'
 import links from './config'
 
 const Menu: React.FC = props => {
@@ -20,9 +20,9 @@ const Menu: React.FC = props => {
       priceLink="https://www.coingecko.com/en/coins/goose-finance"
       account={account as string}
       login={(connectorId: ConnectorId) => {
-        if (connectorId === 'walletconnect') {
-          return activate(walletconnect)
-        }
+        // if (connectorId === 'walletconnect') {
+        //   return activate(walletconnect)
+        // }
 
         // if (connectorId === 'bsc') {
         //   return activate(bsc)
