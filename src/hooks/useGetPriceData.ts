@@ -26,17 +26,17 @@ const useGetPriceData = () => {
     const fetchData = async () => {
       try {
         if(multicallContract){
-          const {cakeAddress, busdAddress, lpAddress} = priceContracts;
+          const {cakeAddress, usdcAddress, lpAddress} = priceContracts;
           const calls = [
             [cakeAddress, ERC20_INTERFACE.encodeFunctionData("balanceOf", [lpAddress])],
-            [busdAddress, ERC20_INTERFACE.encodeFunctionData("balanceOf", [lpAddress])],
+            [usdcAddress, ERC20_INTERFACE.encodeFunctionData("balanceOf", [lpAddress])],
           ];
 
           const [resultsBlockNumber, result] = await multicallContract.aggregate(calls);
-          const [cakeAmount, busdAmount] = result.map(r=>ERC20_INTERFACE.decodeFunctionResult("balanceOf", r));
+          const [cakeAmount, usdcAmount] = result.map(r=>ERC20_INTERFACE.decodeFunctionResult("balanceOf", r));
           const cake = new BigNumber(cakeAmount);
-          const busd = new BigNumber(busdAmount);
-          const cakePrice = busd.div(cake).toNumber();
+          const usdc = new BigNumber(usdcAmount);
+          const cakePrice = usdc.multipliedBy(1e12).div(cake).toNumber(); // Multiply by the missing decimals (6 vs 18)
           setData(cakePrice)
         }
       } catch (error) {
