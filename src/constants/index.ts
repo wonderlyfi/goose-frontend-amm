@@ -15,7 +15,7 @@ export const DAI = new Token(ChainId.ARBITRUM_MAINNET, '0xDA10009cBd5D07dd0CeCc6
 export const USDC = new Token(ChainId.ARBITRUM_MAINNET, '0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8', 6, 'USDC', 'USD Coin (Arb1)')
 export const USDT = new Token(ChainId.ARBITRUM_MAINNET, '0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9', 6, 'USDT', 'Tether USD')
 export const WBTC = new Token(ChainId.ARBITRUM_MAINNET, '0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f', 8, 'WBTC', 'Wrapped BTC')
-export const FROST = new Token(ChainId.ARBITRUM_MAINNET, '0xFEa7a6a0B346362BF88A9e4A88416B77a57D6c2A', 18, 'FROST', 'FrostSwap Token') // Currently MIM
+export const FROST = new Token(ChainId.ARBITRUM_MAINNET, '0x0c7f27Ce61202BC614D4A52D26240de014FC56D2', 18, 'FROST', 'FrostSwap Token')
 
 const WETH_ONLY: ChainTokenList = {
   [ChainId.MAINNET]: [WETH[ChainId.MAINNET]],

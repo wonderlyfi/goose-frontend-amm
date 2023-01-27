@@ -4,7 +4,7 @@ const config: MenuEntry[] = [
   {
     label: 'Home',
     icon: 'HomeIcon',
-    href: 'https://www.goosedefi.com/'
+    href: 'https://exchange.frostswap.app/#/swap'
   },
   {
     label: 'Trade',
@@ -22,14 +22,15 @@ const config: MenuEntry[] = [
     ]
   },
   {
-    label: 'Farms',
+    label: 'Farms (Soon)',
     icon: 'FarmIcon',
-    href: 'https://www.goosedefi.com/farms'
+    href: 'https://exchange.frostswap.app/#/swap'
   },
   {
-    label: 'Nests',
+    label: 'Pools (Soon)',
     icon: 'PoolIcon',
-    href: 'https://www.goosedefi.com/nests'
+    // href: 'https://www.frostswap.app/nests'
+    href: 'https://exchange.frostswap.app/#/swap'
   },
   // {
   //   label: 'Lottery',
@@ -40,21 +41,21 @@ const config: MenuEntry[] = [
     label: 'Info',
     icon: 'InfoIcon',
     items: [
+      // {
+      //   label: 'FrostSwap',
+      //   href: 'https://frostswap.info/token/0xF952Fc3ca7325Cc27D15885d37117676d25BfdA6',
+      // },
+      // {
+      //   label: 'CoinGecko',
+      //   href: 'https://www.coingecko.com/en/coins/frostswap-finance',
+      // },
+      // {
+      //   label: 'CoinMarketCap',
+      //   href: 'https://coinmarketcap.com/currencies/frostswap-finance/',
+      // },
       {
-        label: 'FrostSwap',
-        href: 'https://frostswap.info/token/0xF952Fc3ca7325Cc27D15885d37117676d25BfdA6',
-      },
-      {
-        label: 'CoinGecko',
-        href: 'https://www.coingecko.com/en/coins/goose-finance',
-      },
-      {
-        label: 'CoinMarketCap',
-        href: 'https://coinmarketcap.com/currencies/goose-finance/',
-      },
-      {
-        label: 'AstroTools',
-        href: 'https://app.astrotools.io/frost-pair-explorer/0x19e7cbecdd23a16dfa5573df54d98f7caae03019',
+        label: 'DexScreener (Soon)',
+        href: 'https://dexscreener.com/',
       },
     ]
   },
@@ -63,34 +64,34 @@ const config: MenuEntry[] = [
     icon: 'MoreIcon',
     items: [
       {
-        label: "Github",
-        href: "https://github.com/goosedefi/",
+        label: "Github (Soon)",
+        href: "https://github.com/",
       },
       {
-        label: "Docs",
-        href: "https://goosedefi.gitbook.io/goose-finance/",
+        label: "Docs (Soon)",
+        href: "https://frostswap.gitbook.io/frostswap-finance/",
       },
-      {
-        label: "Blog",
-        href: "https://goosefinance.medium.com/",
-      },
+      // {
+      //   label: "Blog",
+      //   href: "https://frostswap.medium.com/",
+      // },
     ],
   },
-  {
-    label: 'Partnerships/IFO',
-    icon: 'GooseIcon',
-    href: 'https://docs.google.com/forms/d/e/1FAIpQLSe7ycrw8Dq4C5Vjc9WNlRtTxEhFDB1Ny6jlAByZ2Y6qBo7SKg/viewform?usp=sf_link',
-  },
-  {
-    label: 'Audit by Hacken',
-    icon: 'AuditIcon',
-    href: 'https://www.goosedefi.com/files/hackenAudit.pdf',
-  },
-  {
-    label: 'Audit by CertiK',
-    icon: 'AuditIcon',
-    href: 'https://certik.org/projects/goose-finance',
-  },
+  // {
+  //   label: 'Partnerships/IFO',
+  //   icon: 'GooseIcon',
+  //   href: 'https://docs.google.com/forms/d/e/1FAIpQLSe7ycrw8Dq4C5Vjc9WNlRtTxEhFDB1Ny6jlAByZ2Y6qBo7SKg/viewform?usp=sf_link',
+  // },
+  // {
+  //   label: 'Audit by Hacken',
+  //   icon: 'AuditIcon',
+  //   href: 'https://www.goosedefi.com/files/hackenAudit.pdf',
+  // },
+  // {
+  //   label: 'Audit by CertiK',
+  //   icon: 'AuditIcon',
+  //   href: 'https://certik.org/projects/frostswap-finance',
+  // },
 ]
 
 export default config
