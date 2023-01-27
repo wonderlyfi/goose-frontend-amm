@@ -52,7 +52,7 @@ const PageHeader = ({ title, description, children }: PageHeaderProps) => {
               {description}
             </Text>
           )}
-        </Details>
+        </Details>        
         <IconButton variant="text" onClick={onPresentSettings} title="Settings">
           <CogIcon />
         </IconButton>
