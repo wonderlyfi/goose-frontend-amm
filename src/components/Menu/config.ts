@@ -2,35 +2,35 @@ import { MenuEntry } from '@pancakeswap-libs/uikit'
 
 const config: MenuEntry[] = [
   {
-    label: 'Home',
+    label: '❄️ Home ❄️',
     icon: 'HomeIcon',
-    href: 'https://exchange.frostswap.app/#/swap'
+    href: 'https://frostswap.app/'
   },
   {
-    label: 'Trade',
+    label: '❄️ Trade ❄️',
     icon: 'TradeIcon',
     initialOpenState: true,
     items: [
       {
-        label: 'Exchange',
+        label: '❄️ Exchange ❄️',
         href: '/swap'
       },
       {
-        label: 'Liquidity',
+        label: '❄️ Liquidity ❄️',
         href: '/pool'
       }
     ]
   },
   {
-    label: 'Farms (Soon)',
+    label: '❄️ Farms ❄️',
     icon: 'FarmIcon',
-    href: 'https://exchange.frostswap.app/#/swap'
+    href: 'https://frostswap.app/#/farms'
   },
   {
-    label: 'Pools (Soon)',
+    label: '❄️ Pools ❄️',
     icon: 'PoolIcon',
     // href: 'https://www.frostswap.app/nests'
-    href: 'https://exchange.frostswap.app/#/swap'
+    href: 'https://frostswap.app/#/nests'
   },
   // {
   //   label: 'Lottery',
@@ -38,7 +38,7 @@ const config: MenuEntry[] = [
   //   href: 'https://www.goosedefi.com/lottery'
   // },
   {
-    label: 'Info',
+    label: '❄️ Info ❄️',
     icon: 'InfoIcon',
     items: [
       // {
@@ -54,21 +54,21 @@ const config: MenuEntry[] = [
       //   href: 'https://coinmarketcap.com/currencies/frostswap-finance/',
       // },
       {
-        label: 'DexScreener (Soon)',
-        href: 'https://dexscreener.com/',
+        label: '❄️ DexScreener ❄️',
+        href: 'https://dexscreener.com/arbitrum/0x6dc1d800eade7494a3f7aea2958a89ccbd09dcef',
       },
     ]
   },
   {
-    label: 'More',
+    label: '❄️ More ❄️',
     icon: 'MoreIcon',
     items: [
       {
-        label: "Github (Soon)",
+        label: "❄️ Github ❄️",
         href: "https://github.com/",
       },
       {
-        label: "Docs (Soon)",
+        label: "❄️ Docs ❄️",
         href: "https://frostswap.gitbook.io/frostswap-finance/",
       },
       // {
