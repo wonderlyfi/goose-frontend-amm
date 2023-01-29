@@ -17,7 +17,7 @@ const Menu: React.FC = props => {
   return (
     <UikitMenu
       links={links}
-      priceLink="https://www.coingecko.com/en/coins/frostswap-finance"
+      priceLink="https://dexscreener.com/arbitrum/0x6dc1d800eade7494a3f7aea2958a89ccbd09dcef"
       account={account as string}
       login={(connectorId: ConnectorId) => {
         // if (connectorId === 'walletconnect') {
