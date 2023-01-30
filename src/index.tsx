@@ -10,6 +10,7 @@ import TransactionUpdater from './state/transactions/updater'
 import Providers from './Providers'
 import 'inter-ui'
 import './i18n'
+import Snow from './components/Snow/Snow'
 
 if ('ethereum' in window) {
   (window.ethereum as any).autoRefreshOnNetworkChange = false
@@ -30,6 +31,7 @@ ReactDOM.render(
       </>
       <ResetCSS />
       <GlobalStyle />
+      <Snow />
       <App />
     </Providers>
   </StrictMode>,
